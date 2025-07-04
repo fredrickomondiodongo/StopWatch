@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <!-- Given radius find circumference -->
+    <h1>Find circumference of a circle Given Radius</h1>
+    <label for="">Enter Radius:</label>
+    <input type="text" id="myText"> <br> <br>
+    <button id="submit">submit</button> <br> <br>
+    <div id="answer"></div>
+
+    <!-- Given circumference find  radius  -->
+    <h1>Find radius of a circle Given circumference</h1>
+    <label for="">Enter circumference:</label>
+    <input type="text" id="myC"> <br> <br>
+    <button id="submitC">submit</button> <br> <br>
+    <div id="answer1"></div>
+
+
+<script>
+    //c =math.PI * R*R math.PI is an inbuilt
+    // but you can define a variable let pi = 3.14
+
+let display;
+function givenradius(){
+    let submit = document.getElementById('submit');
+    let answer = document.getElementById('answer');
+
+    submit.onclick = () =>{
+        // const radius = window.prompt('Enter radius of the circle');
+        let radius = document.getElementById('myText').value;
+        radius = Number(radius);
+        const circumference = Math.PI * 2* (radius);
+        display = `The circumference is <strong>${circumference}cm</strong>`;
+        answer.innerHTML = display;
+    };
+};
+givenradius()
+
+const givencircumference = ()=>{
+    let submitC = document.getElementById('submitC');
+    let answer1 = document.getElementById('answer1');
+    
+    submitC.onclick = () =>{
+        let circumference = document.getElementById('myC').value;
+        circumference = Number(circumference);
+        const radius = circumference / (Math.PI * 2) ; 
+        display = `The radius is <strong>${radius}cm</strong>`;
+        answer1.innerHTML = display;
+    };
+
+}
+
+givencircumference()
+   
+    
+</script>
+</body>
+</html>

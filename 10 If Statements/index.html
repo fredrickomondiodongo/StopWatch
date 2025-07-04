@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <label>Enter your age:</label> <br> <br> 
+    <input type="text" id="myText"> <br> <br>
+    <button type="submit" id="mySubmit">submit</button>
+    <p id="resultElement"></p>
+
+    
+<script>
+// IF STATEMENTS = if a condition is true, execute some code
+//                                   if not, do something else
+
+
+const mySubmit = document.getElementById("mySubmit");
+const resultElement = document.getElementById("resultElement");
+let myText = document.getElementById("myText");
+let age;
+
+mySubmit.onclick = function(){
+    resultElement.style.color='black';
+    age = myText.value.trim();
+
+    if(age===""){
+        resultElement.textContent = `Field Cannot be Empty!`;
+        resultElement.style.color ='red';
+        return
+    }
+
+    age = Number(age);
+    
+    if (isNaN(age)) {
+        resultElement.textContent = `Please enter numbers only!`;
+        resultElement.style.color ='red';
+        return
+    } 
+
+    
+
+    else if(age >= 100){
+        resultElement.textContent = `You are TOO OLD to enter this site`;
+    }
+    else if(age == 0){
+        resultElement.textContent = `You can't enter. You were just born.`
+    }
+    else if(age >= 18){
+        resultElement.textContent = `You are old enough to enter this site`
+    }
+    else if(age < 0){
+        resultElement.textContent = `Your age can't be below 0`;
+    }
+    else{
+        resultElement.textContent = `You must be 18+ to enter this site`;
+    }
+      
+};
+
+</script>
+</body>
+</html>

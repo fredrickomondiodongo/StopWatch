@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #watch{
+            display: flex;
+            flex-direction: column;
+                        align-items: center;
+            justify-content: center;
+            height: 50vh;
+            width: 100%;
+            border-radius: 15px;
+            
+        }
+        #watchContainer{
+            display: flex;
+            margin-bottom: 10px;
+            font-size: 52px;
+            color: white;
+        }
+        #watchBox{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgb(99, 181, 236);
+            height: 30vh;
+            width: 30vh;
+            justify-content: center;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <section id="watch">
+        <div id="watchBox">
+            <div id="watchContainer">
+                <div id="minutes">00</div>:
+                <div id="seconds">00</div>:
+                <div id="nucsecs">00</div>
+            </div>
+            <div id="buttons">
+                <button id="start">Start</button>
+                <button id="stop">Stop</button>
+                <button id= "reset">Reset</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+       
+        let addminutes = document.getElementById('minutes');
+        let addseconds = document.getElementById('seconds');
+        let addnucsecs = document.getElementById('nucsecs');
+        let startButton = document.getElementById('start');
+        let stopButton = document.getElementById('stop');
+        let resetButton = document.getElementById('reset');
+        let minutes = 0;
+        let seconds =0;
+        let nucsecs = 0;
+        let interval;
+
+        //start timer function
+        startTimer = () =>{
+            nucsecs++;
+            addnucsecs.innerHTML = nucsecs;
+            if (nucsecs<=9){
+                addnucsecs.innerHTML = '0' + nucsecs;
+            };
+            if(nucsecs>=99){
+                seconds++;
+                nucsecs = 0;
+                addnucsecs.innerHTML = '0' + nucsecs;
+                addseconds.innerHTML = seconds;
+            };
+            if(seconds<=9){
+                addseconds.innerHTML = '0' + seconds;
+            };
+            if(seconds>=59){
+                minutes++;
+                seconds= 0 ;
+                addseconds.innerHTML ='0'+ seconds;
+                addminutes.innerHTML = minutes;
+                if(minutes<=9){
+                    addminutes.innerHTML = '0' + minutes
+                }
+
+            };
+
+        }
+        startButton.onclick =() =>{
+            clearInterval(interval);
+            interval = setInterval(startTimer,10);
+        };
+        stopButton.onclick = ()=>{
+            clearInterval(interval);
+        };
+        resetButton.onclick = ()=>{
+            clearInterval(interval);
+            minutes = 0;
+            seconds=0;
+            nucsecs=0;
+            addnucsecs.innerHTML = '0' + nucsecs;
+            addseconds.innerHTML ='0'+ seconds;
+            addminutes.innerHTML = '0' + minutes;
+
+        };
+    </script>
+    
+
+
+</body>
+</html>

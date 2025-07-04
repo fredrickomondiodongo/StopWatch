@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">Enter minimum Number</label>
+    <input type="text" id="minNo"> <br> <br>
+
+    <label for="">Enter maximun Number</label>
+    <input type="text" id="maxNo"> 
+
+    <div id="display">random number appears here</div>
+    <button id="randombtn">random</button>
+
+ 
+
+<script>
+    let randombutton = document.getElementById("randombtn");
+    let display = document.getElementById("display");
+    display.style.color = `black`; 
+
+    let maxNum;
+    let minNum; 
+    randombutton.onclick =()=>{
+        maxNum = document.getElementById("maxNo").value;
+        minNum = document.getElementById("minNo").value;
+        //converting strings to numbers so thait does not behave abnormal
+        maxNum = Number(maxNum);
+        minNum = Number(minNum);
+        //const randomNum = Math.floor( Math.random()*maxNum)+minNum;
+        const randomNum = Math.floor( Math.random()*(maxNum-minNum + 1))+minNum;
+        display.innerHTML = `The random number between ${minNum} and ${maxNum} is <strong>${randomNum}</strong> `;
+
+        if(isNaN(maxNum) || isNaN(minNum) ){
+            display.innerHTML = `Enter a valid number`;
+            display.style.color = `red`;
+        };
+    };
+
+
+
+     // random number
+        // min = 90;
+        // max = 100;
+        // const randomNumber =() =>{
+        //     const r = Math.floor( Math.random()*(max-min+1)) +min;
+        //     console.log(r)
+        // };
+        // randomNumber();
+</script>
+</body>
+</html>

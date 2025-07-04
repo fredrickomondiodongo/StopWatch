@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+           font-size: 55px;
+        }
+        label{
+            font-size: 22px;
+        }
+        button{
+            cursor: pointer;
+        }
+        input, #displayName{
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+<h1 id="myH1">Welcome</h1>
+<div id="displayName"> </div>
+<label for="name">Username:</label>
+<input type="text" id="mytext"> <br> <br>
+<button id="submit">Submit</button>
+
+<script>
+let username;
+
+let submit= document.getElementById("submit");
+let h1= document.getElementById("myH1");
+
+submit.onclick = () =>{
+    username = document.getElementById("mytext").value;
+    
+    h1.textContent = `Hello ${username}`;
+    console.log(username);
+
+}
+</script>
+
+
+<!-- <script src="index.js"></script> -->
+</body>
+</html>

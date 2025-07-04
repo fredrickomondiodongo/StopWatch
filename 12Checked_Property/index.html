@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" id="myCheckBox">
+    <label for="myCheckBox">subscribe</label><br><br>
+
+    <input type="radio" id="visaBtn" name="card">
+    <label for="visaBtn">Visa</label><br>
+    <input type="radio" id="masterCardBtn" name="card">
+    <label for="masterCardBtn">Master Card</label><br>
+    <input type="radio" id="payPalBtn" name="card">
+    <label for="payPalBtn">PayPal</label><br><br>
+
+    <button type="submit" id="mySubmit">submit</button>
+
+    <p id="subResult"></p>
+    <p id="paymentResult"></p>
+
+    <script>
+        let subscribed = document.getElementById('myCheckBox');
+
+        let visaBtn = document.getElementById('visaBtn');
+        let masterCardBtn = document.getElementById('masterCardBtn');
+        let payPalBtn = document.getElementById('payPalBtn');
+
+        let mySubmit = document.getElementById('mySubmit');
+        let subResult = document.getElementById('subResult');
+        let paymentResult = document.getElementById('paymentResult');
+
+        
+
+        mySubmit.onclick = ()=>{
+            if(subscribed.checked){
+                subResult.textContent =`You are subscribed`;
+               
+            }
+            else{
+                subResult.textContent =`You are not Subscribed`;
+                paymentResult.textContent = '';
+                return;
+                
+            }
+
+            //This is a function for payment method radio buttons
+            paymentMethod=()=>{
+                if(visaBtn.checked ){
+                    paymentResult.textContent = 'You have choosen visa as your payment method';
+                } else if(masterCardBtn.checked){
+                    paymentResult.textContent = 'You have choosen Master Card as your payment method';
+                } else if(payPalBtn.checked){
+                    paymentResult.textContent = 'You have choosen Pay Pall as your payment method';
+                } 
+                else{
+                    paymentResult.textContent = 'You must select a payment type';
+                }
+            };
+
+            paymentMethod();
+        };
+
+
+    </script>
+</body>
+</html>
